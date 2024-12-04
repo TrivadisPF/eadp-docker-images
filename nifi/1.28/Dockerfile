@@ -5,8 +5,8 @@ USER root
 
 RUN apt-get update 
 
-# Install Python3
-RUN apt-get install -y python3 python3-pip
+# Install Python3 and wget
+RUN apt-get install -y python3 python3-pip wget
 
 WORKDIR ${NIFI_HOME}/extensions
 
