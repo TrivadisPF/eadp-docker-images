@@ -1,3 +1,7 @@
 FROM trinodb/trino:466
 
-COPY ./plugins/trino-eadp-udf-466 /usr/lib/trino/plugin/trino-eadp-udf-466
+WORKDIR /usr/lib/trino/plugin/
+
+# Copy the ZIP file into the image
+COPY ./trino-eadp-udf-466 /usr/lib/trino/plugin/trino-eadp-udf-466
+
