@@ -13,12 +13,15 @@ jobs:
         include:
           - image: trivadis/eadp-nifi
             dockerfile: nifi/1.27/Dockerfile
+            context_dir: nifi/1.27            
             tag: 1.27.0
           - image: trivadis/eadp-nifi
             dockerfile: nifi/1.28/Dockerfile
+            context_dir: nifi/1.28            
             tag: 1.28.0
           - image: trivadis/eadp-nifi
             dockerfile: nifi/2.0/Dockerfile
+            context_dir: nifi/2.0
             tag: 2.0.0            
     steps:
       - name: Checkout
@@ -47,7 +50,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ${{ matrix.context_dir }}
           file: ${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true

@@ -13,9 +13,11 @@ jobs:
         include:
           - image: trivadis/eadp-airflow
             dockerfile: airflow/2.9/Dockerfile
+            context_dir: airflow/2.9            
             tag: 2.9.3-python3.12
           - image: trivadis/eadp-airflow
             dockerfile: airflow/2.10/Dockerfile
+            context_dir: airflow/2.10            
             tag: 2.10.2-python3.12
     steps:
       - name: Checkout
@@ -44,7 +46,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ${{ matrix.context_dir }}
           file: ${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true
