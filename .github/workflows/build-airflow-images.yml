@@ -1,4 +1,4 @@
-name: build-eadp-docker-images
+name: build-eadp-airflow-docker-images
 
 on:
   push:
@@ -11,12 +11,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - image: trivadis/eadp-nifi
-            dockerfile: nifi/1.28/Dockerfile
-            tag: 1.28.0
-          - image: trivadis/eadp-nifi
-            dockerfile: nifi/2.0/Dockerfile
-            tag: 2.0.0            
+          - image: trivadis/eadp-airflow
+            dockerfile: airflow/2.9/Dockerfile
+            tag: 2.9.3-python3.12
+          - image: trivadis/eadp-airflow
+            dockerfile: airflow/2.10/Dockerfile
+            tag: 2.10.2-python3.12
     steps:
       - name: Checkout
         uses: actions/checkout@v4
