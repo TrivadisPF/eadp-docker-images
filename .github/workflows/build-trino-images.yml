@@ -13,12 +13,15 @@ jobs:
         include:
           - image: trivadis/eadp-trino
             dockerfile: trino/462/Dockerfile
+            context_dir: trino/462
             tag: 462
           - image: trivadis/eadp-trino
             dockerfile: trino/466/Dockerfile
+            context_dir: trino/466            
             tag: 466
           - image: trivadis/eadp-trino
             dockerfile: trino/467/Dockerfile
+            context_dir: trino/467            
             tag: 467
     steps:
       - name: Checkout
@@ -47,7 +50,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ${{ matrix.context_dir }} 
           file: ${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true
