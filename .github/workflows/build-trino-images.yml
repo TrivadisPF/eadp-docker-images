@@ -23,6 +23,10 @@ jobs:
             dockerfile: trino/467/Dockerfile
             context_dir: trino/467            
             tag: 467
+          - image: trivadis/eadp-trino
+            dockerfile: trino/468/Dockerfile
+            context_dir: trino/468            
+            tag: 468            
     steps:
       - name: Checkout
         uses: actions/checkout@v4
