@@ -23,6 +23,14 @@ jobs:
             dockerfile: nifi/2.0/Dockerfile
             context_dir: nifi/2.0
             tag: 2.0.0            
+          - image: trivadis/eadp-nifi
+            dockerfile: nifi/2.1/Dockerfile
+            context_dir: nifi/2.1
+            tag: 2.1.0
+          - image: trivadis/eadp-nifi
+            dockerfile: nifi/2.2/Dockerfile
+            context_dir: nifi/2.2
+            tag: 2.2.0                            
     steps:
       - name: Checkout
         uses: actions/checkout@v4
